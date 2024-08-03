@@ -1,11 +1,13 @@
 #Login to ur azure ACC.
 az login
 # Create a new resource group (replace ResourceGroupName and Region with your preferred values).
+#az group create --name ResourceGroupName --location Region
 az group create --name ResourceGroupName --location Region
 # Create a serviceplan
 az appservice plan create --name PlanName --resource-group ResourceGroupName --sku B1 --is-linux
 # Now create a webapp
-az webapp create --name AppName --resource-group ResourceGroupName --plan PlanName --runtime "python|3.12"
+#az webapp create --name AppName --resource-group ResourceGroupName --plan PlanName --runtime "python|3.12"
+az webapp create --name QAapp --resource-group EstudosProduto --plan Web App --runtime "python|3.12"
 # Streamlit's default configuration is for development. Modify your Streamlit app to include the following lines at the end:
 # app.py  import streamlit as st  # Your Streamlit app code here  if __name__ == '__main__':     st.set_option('server.enableCORS', True)
 # Deploy your Streamlit app to Azure using Git. Initialize a Git repository in your Streamlit project if you haven't already.
